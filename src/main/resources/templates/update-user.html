@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update User</title>
+    <!-- Thêm liên kết đến Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Update User</h1>
+    <!-- Form để cập nhật người dùng -->
+    <form action="#" th:action="@{/update/{id}(id=${user.id})}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name">
+            <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email">
+            <div th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update User</button>
+        <a href="/index" class="btn btn-secondary">Back to User List</a>
+    </form>
+</div>
+
+<!-- Thêm liên kết đến Bootstrap JS và các phụ thuộc -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
